@@ -7,14 +7,14 @@
 			alt="example"
 			:src="cover"
 		/>
-		<div class="card-tag">Project #{{ id }}</div>
+		<div class="card-tag">课程 #{{ id }}</div>
 		<h5>{{ title }}</h5>
 		<p>
 			{{ content }}
 		</p>
 		<a-row type="flex" :gutter="6" class="card-footer" align="middle">
 			<a-col :span="12">
-				<a-button size="small">VIEW PROJECT</a-button>
+				<a-button size="small">查看该课程</a-button>
 			</a-col>
 			<a-col :span="12" class="text-right">
 				<a-space :size="-12" class="avatar-chips">

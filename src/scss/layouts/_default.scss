@@ -19,6 +19,26 @@ body {
 	@media( min-width: $lg ){
 		overflow: auto;
 	}
+
+
+	.brand {
+		position:absolute;
+		font-weight: 600;
+		font-size: 16px;
+		color: #616161;
+		line-height:1.5;
+		width:200px;
+		top:10px;
+
+		.subbrand {
+			font-weight: 250; //偏细
+			font-size: 13px;
+			color: #C5CAE9;
+			letter-spacing: 1.15pt;
+		}
+	}
+
+
 	.ant-layout-header {
 		display: flex;
 		position: relative;
@@ -54,7 +74,7 @@ body {
 				margin-bottom: 0px;
 			}
 
-			.btn-menu-trigger {
+				.btn-menu-trigger {
 				display: block;
 				
 				@media( min-width: $lg ){

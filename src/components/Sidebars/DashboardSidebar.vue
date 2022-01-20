@@ -17,7 +17,7 @@
         <!--        company logo here-->
         <span>祝梦教育</span>
         <br>
-        <span style="color: rgb(126, 140, 141);" data-mce-style="color: #7e8c8d;">高校学子课堂小助手</span>
+        <span class="subbrand">高校学子课堂小助手</span>
       </div>
 			<hr>
 
@@ -58,7 +58,6 @@
 						<span class="label">论坛</span>
 					</router-link>
 				</a-menu-item>
-
         <a-menu-item>
           <router-link to="/calendar">
 						<span class="icon">
@@ -70,7 +69,6 @@
             <span class="label">校历</span>
           </router-link>
         </a-menu-item>
-
         <a-menu-item>
           <router-link to="/others">
 						<span class="icon">

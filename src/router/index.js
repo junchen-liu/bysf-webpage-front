@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-const routes = [
+let routes = [
 	{
 		// will match everything
 		path: '*',
@@ -60,6 +60,24 @@ const routes = [
 		component: () => import('../views/testpage.vue'),
 	}
 ]
+
+// Adding layout property from each route to the meta
+// object so it can be accessed later.
+function addLayoutToRoute( route, parentLayout = "default" )
+{
+	route.meta = route.meta || {} ;
+	route.meta.layout = route.layout || parentLayout ;
+
+	if( route.children )
+	{
+		route.children = route.children.map( ( childRoute ) => addLayoutToRoute( childRoute, route.meta.layout ) ) ;
+	}
+	return route ;
+}
+
+routes = routes.map( ( route ) => addLayoutToRoute( route ) ) ;
+
+
 const router = new VueRouter({
 	routes:routes
 })
