@@ -2,74 +2,69 @@
   <div>
 
     <a-menu
-        style="width: 256px"
         :default-selected-keys="['1']"
         :open-keys.sync="openKeys"
         mode="inline"
         @click="handleClick"
     >
+      <a-sub-menu v-for="(group, index) in courses" :key="index">
+        <span slot="title"><a-icon type="mail" /><span>{{group.title}}</span></span>
+        <a-menu-item v-for="(subGroup, subIdx) in group.team" :key="subIdx" @click="titleClick({group:group.title,subGroup:subGroup},$event)">
+          {{subGroup}}
+        </a-menu-item>
+      </a-sub-menu>
 
-      <a-sub-menu key="sub1" @titleClick="titleClick">
-        <span slot="title"><a-icon type="mail" /><span>学历</span></span>
-        <a-menu-item-group key="g1">
-          <template slot="title"> <a-icon type="qq" /><span>Item 1</span> </template>
-          <a-menu-item key="1">
-            Option 1
-          </a-menu-item>
-          <a-menu-item key="2">
-            Option 2
-          </a-menu-item>
-        </a-menu-item-group>
-        <a-menu-item-group key="g2" title="Item 2">
-          <a-menu-item key="3">
-            Option 3
-          </a-menu-item>
-          <a-menu-item key="4">
-            Option 4
-          </a-menu-item>
-        </a-menu-item-group>
-      </a-sub-menu>
-      <a-sub-menu key="sub2" @titleClick="titleClick">
-        <span slot="title"><a-icon type="appstore" /><span>职业规划探索</span></span>
-        <a-menu-item key="5">
-          Option 5
-        </a-menu-item>
-        <a-menu-item key="6">
-          Option 6
-        </a-menu-item>
-        <a-sub-menu key="sub3" title="Submenu">
-          <a-menu-item key="7">
-            Option 7
-          </a-menu-item>
-          <a-menu-item key="8">
-            Option 8
-          </a-menu-item>
-        </a-sub-menu>
-      </a-sub-menu>
-      <a-sub-menu key="sub4">
-        <span slot="title"><a-icon type="setting" /><span>Navigation Three</span></span>
-        <a-menu-item key="9">
-          Option 9
-        </a-menu-item>
-        <a-menu-item key="10">
-          Option 10
-        </a-menu-item>
-        <a-menu-item key="11">
-          Option 11
-        </a-menu-item>
-        <a-menu-item key="12">
-          Option 12
-        </a-menu-item>
-      </a-sub-menu>
     </a-menu>
   </div>
 </template>
 <script>
+//mock data
+const courses = [
+  {
+    id: 1,
+    title: "学历",
+    content: "As Uber works through a huge amount of internal management turmoil.",
+    cover: "images/course-demo.jpeg",
+    team: [
+      "高中",
+      "大学",
+    ],
+  },
+  {
+    id: 2,
+    title: "职业发展探索",
+    content: "Music is something that every person has his or her own specific opinion about.",
+    cover: "images/course-demo.jpeg",
+    team: [
+      "艺术文娱",
+      "法律教育",
+      "自然科学与健康",
+      "骄傲码农",
+    ],
+  },
+  {
+    id: 3,
+    title: "范围3",
+    content: "Different people have different taste, and various types of music, Zimbali Resort.",
+    cover: "images/course-demo.jpeg",
+    team: [
+      "示例子范围",
+      "示例子范围",
+      "示例子范围",
+      "示例子范围",
+      "示例子范围",
+    ],
+  },
+] ;
+
+
+
 export default {
   data() {
     return {
       current: ['mail'],
       openKeys: ['sub1'],
+      courses,
     };
   },
   watch: {
@@ -81,8 +76,15 @@ export default {
     handleClick(e) {
       console.log('click', e);
     },
-    titleClick(e) {
-      console.log('titleClick', e);
+    titleClick(o) {
+      console.log('titleClick', o);
+      this.$router.push({
+        query:{
+          name:'article-detail',
+          group:o.group,
+          subgroup:o.subGroup
+        }
+      })
     },
   },
 };

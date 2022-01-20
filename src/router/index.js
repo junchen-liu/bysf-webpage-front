@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import OthersArticleCard from "@/views/page-components/OthersArticleCard";
 
 Vue.use(VueRouter)
 
@@ -53,6 +54,14 @@ let routes = [
 		path: '/others',
 		name: 'other',
 		component: () => import('../views/otherspage.vue'),
+		children:[
+			{
+				name:'article-detail',
+				path:'detail',
+				component:OthersArticleCard,
+				props:true
+			}
+		]
 	},
 	{
 		path: '/test',
