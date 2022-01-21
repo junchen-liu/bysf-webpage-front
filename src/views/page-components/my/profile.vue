@@ -126,10 +126,10 @@
 
 <script>
 
-	import CardPlatformSettings from "../../components/Cards/CardPlatformSettings"
-	import CardProfileInformation from "../../components/Cards/CardProfileInformation"
-	import CardConversations from "../../components/Cards/CardConversations"
-	import CardProject from "../../components/Cards/CardProject"
+	import CardPlatformSettings from "../../../components/Cards/CardPlatformSettings"
+	import CardProfileInformation from "../../../components/Cards/CardProfileInformation"
+	import CardConversations from "../../../components/Cards/CardConversations"
+	import CardProject from "../../../components/Cards/CardProject"
 
 	// Conversation's list data.
 	const conversationsData = [

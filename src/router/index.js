@@ -34,6 +34,27 @@ let routes = [
 		path: '/profile',
 		name: 'profile',
 		component: () => import('../views/profilepage.vue'),
+		children:[
+			{
+				name:'profile',
+				path:'profile',
+				component:() => import("../views/page-components/my/profile"),
+			},
+			{
+				name:'schedule',
+				path:'schedule',
+				component:() => import("../views/page-components/my/schedule"),
+			},
+			{
+				name:'favorites',
+				path:'favorites',
+				component:() => import("../views/page-components/my/favorites"),
+			},			{
+				name:'vip-service',
+				path:'vip-service',
+				component:() => import("../views/page-components/my/vip-service"),
+			}
+		]
 	},
 	{
 		path: '/course',
@@ -59,7 +80,6 @@ let routes = [
 				name:'article-detail',
 				path:'detail',
 				component:OthersArticleCard,
-				props:true
 			}
 		]
 	},

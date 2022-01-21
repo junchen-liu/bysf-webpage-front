@@ -9,12 +9,12 @@
 		<a-layout class="layout-dashboard" id="layout-dashboard" :class="[navbarFixed ? 'navbar-fixed' : '', ! sidebarCollapsed ? 'has-sidebar' : '', layoutClass]">
 			
 			<!-- Main Sidebar -->
-			<DashboardSidebar
+			<ProfilePageSiderbar
 				:sidebarCollapsed="sidebarCollapsed"
 				:sidebarColor="sidebarColor"
 				:sidebarTheme="sidebarTheme"
 				@toggleSidebar="toggleSidebar"
-			></DashboardSidebar>
+			></ProfilePageSiderbar>
 			<!-- / Main Sidebar -->
 
 			<!-- Layout Content -->
@@ -31,7 +31,7 @@
 
 				<!-- Page Content -->
 				<a-layout-content>
-					<profile />
+					<router-view/>
 				</a-layout-content>
 				<!-- / Page Content -->
 
@@ -75,19 +75,17 @@
 
 <script>
 
-	import DashboardSidebar from '../components/Sidebars/DashboardSidebar' ;
+  import ProfilePageSiderbar from "@/components/Sidebars/ProfilePageSiderbar";
 	import DashboardHeader from '../components/Headers/DashboardHeader' ;
 	import DashboardFooter from '../components/Footers/DashboardFooter' ;
 	import DashboardSettingsDrawer from '../components/Sidebars/DashboardSettingsDrawer' ;
-  import profile from "@/views/page-components/profile";
 
 	export default ({
 		components: {
-			DashboardSidebar,
+      ProfilePageSiderbar,
 			DashboardHeader,
 			DashboardFooter,
 			DashboardSettingsDrawer,
-      profile
 		},
 		data() {
 			return {
