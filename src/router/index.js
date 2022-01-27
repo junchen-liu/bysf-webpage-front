@@ -39,6 +39,18 @@ let routes = [
 				name:'profile',
 				path:'profile',
 				component:() => import("../views/page-components/my/profile"),
+				children:[
+					{
+						name:'information',
+						path:'information',
+						component:() => import("../views/page-components/my/CardProfileInformation"),
+					},
+					{
+						name:'setting',
+						path:'setting',
+						component:() => import("../views/page-components/my/CardProfileInfoSetting"),
+					},
+				]
 			},
 			{
 				name:'schedule',
@@ -49,7 +61,8 @@ let routes = [
 				name:'favorites',
 				path:'favorites',
 				component:() => import("../views/page-components/my/favorites"),
-			},			{
+			},
+			{
 				name:'vip-service',
 				path:'vip-service',
 				component:() => import("../views/page-components/my/vip-service"),
