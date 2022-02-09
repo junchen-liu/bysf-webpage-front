@@ -33,10 +33,56 @@
   </div>
 </template>
 
+<template>
+  <a-list item-layout="vertical" size="large" :pagination="pagination" :data-source="listData">
+    <a-list-item slot="renderItem" key="item.title" slot-scope="item, index">
+      <template v-for="{ type, text } in actions" slot="actions">
+        <span :key="type">
+          <a-icon :type="type" style="margin-right: 8px" />
+          {{ text }}
+        </span>
+      </template>
+      <img
+        slot="extra"
+        width="272"
+        alt="logo"
+        src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+      />
+      <a-list-item-meta :description="item.description">
+        <a slot="title" :href="item.href">{{ item.title }}</a>
+        <a-avatar slot="avatar" :src="item.avatar" />
+      </a-list-item-meta>
+      {{ item.content }}
+    </a-list-item>
+  </a-list>
+</template>
+
 <script>
-export default {
-  name: "course"
+const listData = [];
+for (let i = 0; i < 5; i++) {
+  listData.push({
+    href: 'http://10.185.156.106:8080/#/homepage',
+    title: `声乐课`,
+    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    description:
+      '刘春 - 北校区105',
+    content:
+      '本课程致力于培养优美的声音',
+  });
 }
+export default {
+  data() {
+    return {
+      listData,
+      pagination: {
+        onChange: page => {
+          console.log(page);
+        },
+        pageSize: 3,
+      },
+    };
+  },
+};
 </script>
 
 <style scoped>
