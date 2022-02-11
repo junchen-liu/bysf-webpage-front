@@ -14,7 +14,7 @@
 		</p>
 		<a-row type="flex" :gutter="6" class="card-footer" align="middle">
 			<a-col :span="12">
-				<a-button size="small">查看该课程</a-button>
+				<a-button size="small" @click = "handleClick({articleId:id},$event)">查看该课程</a-button>
 			</a-col>
 			<a-col :span="12" class="text-right">
 				<a-space :size="-12" class="avatar-chips">
@@ -56,6 +56,18 @@
 			return {
 			}
 		},
+    methods: {
+      handleClick(e) {
+        console.log(this.$route.query);
+        this.$router.push({
+          name:'article-content',
+          query:{
+            articleId:e.articleId,
+          }
+        })
+      },
+    },
+
 	})
 
 </script>

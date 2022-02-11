@@ -16,6 +16,7 @@
             :content="project.content"
             :cover="project.cover"
             :team="project.team"
+
         ></CardProject>
       </a-col>
       <!-- / Article Column -->

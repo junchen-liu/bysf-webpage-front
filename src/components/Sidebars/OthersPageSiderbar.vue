@@ -79,8 +79,8 @@ export default {
     titleClick(o) {
       console.log('titleClick', o);
       this.$router.push({
+        name:'article-detail',
         query:{
-          name:'article-detail',
           group:o.group,
           subgroup:o.subGroup
         }

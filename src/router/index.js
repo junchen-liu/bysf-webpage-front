@@ -93,8 +93,13 @@ let routes = [
 				name:'article-detail',
 				path:'detail',
 				component:OthersArticleCard,
-			}
-		]
+			},
+			{
+				name:'article-content',
+				path:'content',
+				component:() => import("../views/page-components/Article"),
+			},
+			]
 	},
 	{
 		path: '/test',
