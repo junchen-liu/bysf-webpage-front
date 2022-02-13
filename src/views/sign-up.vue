@@ -5,16 +5,6 @@
 
 <template>
   <div>
-
-    <!-- Default Layout -->
-    <a-layout class="layout-default" id="layout-default" :class="['layout-default']">
-      <!-- Layout Header ( Navbar ) -->
-      <DefaultHeader></DefaultHeader>
-      <!-- / Layout Header ( Navbar ) -->
-
-
-      <!-- Page Content -->
-      <a-layout-content>
         <div>
           <!-- Sign Up Image And Headings -->
           <div class="sign-up-header" style="background-image: url('images/bg-signup.jpg')">
@@ -88,17 +78,6 @@
           <!-- / Sign Up Form -->
 
         </div>
-
-      </a-layout-content>
-      <!-- / Page Content -->
-
-      <!-- Layout Footer -->
-      <DefaultFooter></DefaultFooter>
-      <!-- / Layout Footer -->
-
-    </a-layout>
-    <!-- / Default Layout -->
-
   </div>
 
 </template>

@@ -20,14 +20,14 @@
 			<!-- Layout Content -->
 			<a-layout>
 
-				<!-- Layout Header's Conditionally Fixed Wrapper -->
-				<DashboardHeader
-					:sidebarCollapsed="sidebarCollapsed"
-					:navbarFixed="navbarFixed"
-					@toggleSettingsDrawer="toggleSettingsDrawer"
-					@toggleSidebar="toggleSidebar"
-				></DashboardHeader>
-				<!-- / Layout Header's Conditionally Fixed Wrapper -->
+<!--				&lt;!&ndash; Layout Header's Conditionally Fixed Wrapper &ndash;&gt;-->
+<!--				<DashboardHeader-->
+<!--					:sidebarCollapsed="sidebarCollapsed"-->
+<!--					:navbarFixed="navbarFixed"-->
+<!--					@toggleSettingsDrawer="toggleSettingsDrawer"-->
+<!--					@toggleSidebar="toggleSidebar"-->
+<!--				></DashboardHeader>-->
+<!--				&lt;!&ndash; / Layout Header's Conditionally Fixed Wrapper &ndash;&gt;-->
 
 				<!-- Page Content -->
 				<a-layout-content>
@@ -76,14 +76,14 @@
 <script>
 
   import ProfilePageSiderbar from "@/components/Sidebars/ProfilePageSiderbar";
-	import DashboardHeader from '../components/Headers/DashboardHeader' ;
+	// import DashboardHeader from '../components/Headers/DashboardHeader' ;
 	import DashboardFooter from '../components/Footers/DashboardFooter' ;
 	import DashboardSettingsDrawer from '../components/Sidebars/DashboardSettingsDrawer' ;
 
 	export default ({
 		components: {
       ProfilePageSiderbar,
-			DashboardHeader,
+			// DashboardHeader,
 			DashboardFooter,
 			DashboardSettingsDrawer,
 		},

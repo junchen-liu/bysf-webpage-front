@@ -5,16 +5,6 @@
 
 <template>
   <div>
-
-    <!-- Default Layout -->
-    <a-layout class="layout-default" id="layout-default" :class="['layout-default']">
-      <!-- Layout Header ( Navbar ) -->
-      <DefaultHeader></DefaultHeader>
-      <!-- / Layout Header ( Navbar ) -->
-
-
-      <!-- Page Content -->
-      <a-layout-content>
         <div class="sign-in">
 
           <a-row type="flex" :gutter="[24,24]" justify="space-around" align="middle">
@@ -70,16 +60,6 @@
           </a-row>
 
         </div>
-      </a-layout-content>
-      <!-- / Page Content -->
-
-      <!-- Layout Footer -->
-      <DefaultFooter></DefaultFooter>
-      <!-- / Layout Footer -->
-
-    </a-layout>
-    <!-- / Default Layout -->
-
   </div>
 
 </template>
