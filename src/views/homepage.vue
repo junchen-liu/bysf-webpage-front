@@ -20,14 +20,6 @@
       <!-- Layout Content -->
       <a-layout>
 
-        <!-- Layout Header's Conditionally Fixed Wrapper -->
-        <DashboardHeader
-            :sidebarCollapsed="sidebarCollapsed"
-            :navbarFixed="navbarFixed"
-            @toggleSettingsDrawer="toggleSettingsDrawer"
-            @toggleSidebar="toggleSidebar"
-        ></DashboardHeader>
-        <!-- / Layout Header's Conditionally Fixed Wrapper -->
 
         <!-- Page Content -->
         <a-layout-content>
@@ -76,7 +68,6 @@
 <script>
 
 import DashboardSidebar from '../components/Sidebars/DashboardSidebar' ;
-import DashboardHeader from '../components/Headers/DashboardHeader' ;
 import DashboardFooter from '../components/Footers/DashboardFooter' ;
 import DashboardSettingsDrawer from '../components/Sidebars/DashboardSettingsDrawer' ;
 import home from "@/views/page-components/home";
@@ -84,7 +75,6 @@ import home from "@/views/page-components/home";
 export default ({
   components: {
     DashboardSidebar,
-    DashboardHeader,
     DashboardFooter,
     DashboardSettingsDrawer,
     home
