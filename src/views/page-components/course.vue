@@ -41,18 +41,20 @@
           <a-icon :type="type" style="margin-right: 8px" />
           {{ text }}
         </span>
+        <router-view></router-view>
       </template>
       <img
         slot="extra"
         width="272"
         alt="logo"
-        src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-      />
+        src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"/>
       <a-list-item-meta :description="item.description">
         <a slot="title" :href="item.href">{{ item.title }}</a>
         <a-avatar slot="avatar" :src="item.avatar" />
+        <a-id="id": arc = "item.id" />
       </a-list-item-meta>
       {{ item.content }}
+      <a-button style="marginTop: 16px" @click="handleClick({courseId:id},$event)">了解更多</a-button>
     </a-list-item>
   </a-list>
 </template>
@@ -61,7 +63,7 @@
 const listData = [];
 for (let i = 0; i < 5; i++) {
   listData.push({
-    href: 'http://10.185.156.106:8080/#/homepage',
+    id: i,
     title: `声乐课`,
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
     description:
@@ -73,6 +75,7 @@ for (let i = 0; i < 5; i++) {
 export default {
   data() {
     return {
+      id: 1,
       listData,
       pagination: {
         onChange: page => {
@@ -80,8 +83,23 @@ export default {
         },
         pageSize: 3,
       },
+      props: {
+        id: {
+               type: Number,
+                default: 1
+        }
+      },
+        handleClick(e) {
+            console.log(this.$route.query);
+             this.$router.push({
+                name:'course-detail',
+            query:{
+                courseId:e.courseId,
+            }
+            })
+        },
     };
-  },
+   }
 };
 </script>
 

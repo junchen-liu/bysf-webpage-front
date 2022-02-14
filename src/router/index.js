@@ -73,6 +73,13 @@ let routes = [
 		path: '/course',
 		name: 'course',
 		component: () => import('../views/coursepage.vue'),
+		children:[
+			{
+				name:'course-detail',
+				path:'content',
+				component:() => import("../views/page-components/CourseDetail.vue"),
+			},
+		]
 	},
 	{
 		path: '/formula',
