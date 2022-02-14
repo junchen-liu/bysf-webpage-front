@@ -25,14 +25,14 @@
                 <a-form-item class="mb-10" label="账户名" :colon="false">
                   <a-input
                       v-decorator="[
-						'Email',
+						'email',
 						{ rules: [{ required: true, message: '请输入邮箱！' }] },
 						]" placeholder="电子邮箱地址" />
                 </a-form-item>
                 <a-form-item class="mb-5" label="用户密码" :colon="false">
                   <a-input
                       v-decorator="[
-						'Password',
+						'password',
 						{ rules: [{ required: true, message: '请输入密码！' }] },
 						]" type="password" placeholder="密码" />
                 </a-form-item>
@@ -85,6 +85,25 @@
 				this.form.validateFields((err, values) => {
 					if ( !err ) {
 						console.log('Received values of form: ', values) ;
+            this.$axios({
+              method: 'post',
+              url: this.api.ApiUrl + '/user/login',
+              data: {
+                email:values.email,
+                password:values.password,
+              }
+            }).then(res => {
+              console.log(res.data);
+              if (res.data.code == '200'){
+                this.$router.push('/profile/profile/information');
+                alert('登陆成功');
+              } else {
+                alert('账号或密码错误/未激活');
+              }
+            }).catch(error => {
+              alert('账号或密码错误');
+              console.log(error);
+            });
 					}
 				});
 			},

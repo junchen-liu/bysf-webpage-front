@@ -26,7 +26,7 @@
               <a-form-item class="mb-10">
                 <a-input
                     v-decorator="[
-						'name',
+						'user_name',
 						{ rules: [{ required: true, message: '请输入用户名' }] },
 						]"
                     placeholder="用户名"
@@ -37,7 +37,7 @@
                 <a-input
                     v-decorator="[
 						'email',
-						{ rules: [{ required: true, message: '请输入邮箱！' }] },
+						{ rules: [{ required: true, message: '请输入正确的邮箱！',pattern:'^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$' }] },
 						]"
                     placeholder="电子邮箱"
                 >
@@ -61,6 +61,7 @@
 						{
 							valuePropName: 'checked',
 							initialValue: true,
+							rules: [{ required: true, message: '请同意条约！' }]
 						},
 						]"
                 >
@@ -99,6 +100,25 @@
 				this.form.validateFields((err, values) => {
 					if ( !err ) {
 						console.log('Received values of form: ', values) ;
+            this.$axios({
+              method: 'post',
+              url: this.api.ApiUrl + '/user/register',
+              data: {
+                user_name:values.user_name,
+                email:values.email,
+                password:values.password
+              }
+            }).then(res => {
+              if (res.data.code == '200'){
+                this.$router.push('/login');
+                alert('注册成功，请检查邮箱激活账号！');
+              } else {
+                alert('注册失败，请联系客服');
+              }
+            }).catch(error => {
+              alert('注册失败，请联系客服');
+              console.log(error);
+            });
 					}
 				});
 			},

@@ -6,9 +6,12 @@ import App from './App.vue'
 import './scss/app.scss';
 import router from './router'
 // import './plugins/click-away'
-
+import api from "@/api";
+import axios from 'axios';
+Vue.prototype.$axios = axios
 Vue.use(Antd);
 Vue.config.productionTip = false
+Vue.prototype.api = api
 
 
 import DefaultLayout from './layouts/Default.vue'
