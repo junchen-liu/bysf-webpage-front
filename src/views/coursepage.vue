@@ -27,7 +27,7 @@
 
         <!-- Page Content -->
         <a-layout-content>
-          <course />
+          <router-view />
         </a-layout-content>
         <!-- / Page Content -->
 
@@ -75,7 +75,6 @@ import DashboardSidebar from '../components/Sidebars/DashboardSidebar' ;
 import DashboardHeader from '../components/Headers/DashboardHeader' ;
 import DashboardFooter from '../components/Footers/DashboardFooter' ;
 import DashboardSettingsDrawer from '../components/Sidebars/DashboardSettingsDrawer' ;
-import course from "@/views/page-components/course";
 
 export default ({
   components: {
@@ -83,7 +82,7 @@ export default ({
     DashboardHeader,
     DashboardFooter,
     DashboardSettingsDrawer,
-    course
+
   },
   data() {
     return {

@@ -75,6 +75,11 @@ let routes = [
 		component: () => import('../views/coursepage.vue'),
 		children:[
 			{
+				name:'course-card',
+				path:'cards',
+				component:() => import("../views/page-components/CourseDetail.vue"),
+			},
+			{
 				name:'course-detail',
 				path:'content',
 				component:() => import("../views/page-components/CourseDetail.vue"),
