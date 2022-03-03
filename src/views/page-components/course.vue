@@ -49,7 +49,7 @@
         alt="logo"
         src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"/>
       <a-list-item-meta :description="item.description">
-        <a slot="title" :href="item.href">{{ item.title }}</a>
+        <a slot="title" :href="item.href" >{{ item.title }}</a>
         <a-avatar slot="avatar" :src="item.avatar" />
         <a-id="id": arc = "item.id" />
       </a-list-item-meta>
