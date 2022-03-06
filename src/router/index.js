@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import OthersArticleCard from "@/views/page-components/OthersArticleCard";
+import CourseDetailCard from "@/views/page-components/CourseDetailCard";
 
 Vue.use(VueRouter)
 
@@ -77,15 +78,33 @@ let routes = [
 			{
 				name:'course-card',
 				path:'cards',
-				component:() => import("../views/page-components/CourseDetail.vue"),
+				component:CourseDetailCard,
 			},
 			{
 				name:'course-detail',
-				path:'content',
-				component:() => import("../views/page-components/CourseDetail.vue"),
+				path:'detail',
+				component:() => import("../components/Cards/CourseDetail"),
 			},
 		]
 	},
+	// {
+	// 	path: '/course',
+	// 	name: 'course',
+	// 	component: () => import('../views/coursepage.vue'),
+	// 	children:[
+	// 		{
+	// 			name:'course-card',
+	// 			path:'cards',
+	// 			component:() => import("../views/page-components/CourseDetail.vue"),
+	//
+	// 		},
+	// 		{
+	// 			name:'course-detail',
+	// 			path:'content',
+	// 			component:CourseDetailCard,
+	// 		},
+	// 	]
+	// },
 	{
 		path: '/formula',
 		name: 'formula',
